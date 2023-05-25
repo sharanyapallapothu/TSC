@@ -6,6 +6,7 @@ import com.nagra.microservice.demo.CharacterRepository;
 import com.nagra.microservice.demo.TVShowRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,4 +53,29 @@ public class TVShowController {
 
 
     }
+
+  /* @PostMapping
+    public ResponseEntity<TVShow> createTvShow(@RequestBody TVShow tvShow) {
+        TVShow createdTvShow = tvShowRepository.save(tvShow);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdTvShow);
+    }
+
+    @PostMapping("/{tvShowId}/characters")
+    public ResponseEntity<Character> createCharacter(
+            @PathVariable Long tvShowId,
+            @RequestBody Character character
+    ) {
+        Optional<TVShow> optionalTvShow = tvShowRepository.findById(tvShowId);
+        if (optionalTvShow.isPresent()) {
+            TVShow tvShow = optionalTvShow.get();
+            character.setTvShowId(tvShow); // Set the TV show ID in the character object
+            Character createdCharacter = characterRepository.save(character);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdCharacter);
+        } else {
+            return ResponseEntity.notFound().build();
+
+
+        }
+
+    }*/
 }
